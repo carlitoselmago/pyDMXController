@@ -8,6 +8,8 @@ dmx.update_channel(6, 255)  # Set channel 6 to maximum
 
 interval=0.001
 
+#create a fast strobe effect with two colors
+
 for i in range(10):
     dmx.update_channel(8,0) 
     dmx.update_channel(7, 255)  
