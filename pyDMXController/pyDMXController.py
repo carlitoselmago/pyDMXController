@@ -1,7 +1,9 @@
 import serial
 import time
 
-class DMXController:
+__version__ = '0.1'
+
+class pyDMXController:
     def __init__(self, port, device_type='ftdi'):
         self.port = port
         self.device_type = device_type

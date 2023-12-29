@@ -1,8 +1,8 @@
-from lib.pyDMXController import pyDMXController
+from pyDMXController import pyDMXController
 import time 
 
 # Example of usage
-dmx =  DMXController(port='/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50285BI-if00-port0', device_type='ftdi')
+dmx =  pyDMXController(port='/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50285BI-if00-port0', device_type='ftdi')
 
 dmx.update_channel(6, 255)  # Set channel 6 to maximum
 
