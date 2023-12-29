@@ -1,7 +1,7 @@
 # pyDMXController
 A simple DMX python controller for both Enttec USB PRO and the cheap FTDI FT232R controllers
 
-How to init the class, addapt the port to your setup
+Adapt the port route to your setup
 
 ## For Enttec DMX USB Pro
 ```
