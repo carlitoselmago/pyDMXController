@@ -1,7 +1,7 @@
 import serial
 import time
 
-__version__ = '0.2'
+__version__ = '0.1'
 
 class pyDMXController:
     def __init__(self, port, device_type='ftdi'):
@@ -27,9 +27,9 @@ class pyDMXController:
     def send_dmx_ftdi(self):
         # FTDI specific DMX protocol
         self.serial.break_condition = True
-        time.sleep(0.0000001)
+        time.sleep(0.0001)
         self.serial.break_condition = False
-        time.sleep(0.0000001)
+        time.sleep(0.0001)
         data = bytearray(self.channels)
         self.serial.write(data)
 
