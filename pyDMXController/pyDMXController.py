@@ -27,9 +27,9 @@ class pyDMXController:
     def send_dmx_ftdi(self):
         # FTDI specific DMX protocol
         self.serial.break_condition = True
-        time.sleep(0.00001)
+        time.sleep(0.0000001)
         self.serial.break_condition = False
-        time.sleep(0.00001)
+        time.sleep(0.0000001)
         data = bytearray(self.channels)
         self.serial.write(data)
 
