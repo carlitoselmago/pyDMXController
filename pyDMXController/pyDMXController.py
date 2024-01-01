@@ -26,10 +26,13 @@ class pyDMXController:
 
     def send_dmx_ftdi(self):
         # FTDI specific DMX protocol
+        # Set Break Condition (88 microseconds or more)
         self.serial.break_condition = True
-        time.sleep(0.0001)
+        time.sleep(0.000088)  # Break time
         self.serial.break_condition = False
-        time.sleep(0.0001)
+        # MAB duration (8 microseconds or more)
+        time.sleep(0.000008)
+        # Send DMX data
         data = bytearray(self.channels)
         self.serial.write(data)
 
@@ -47,7 +50,8 @@ class pyDMXController:
         start_time = time.time()
         while time.time() - start_time < duration:
             self.send_dmx()
-            time.sleep(0.05)
+            # Adjust this delay as needed for smoother transitions
+            time.sleep(0.02)  # Example: 20 milliseconds for smoother transitions
 
     def close(self):
         self.serial.close()
