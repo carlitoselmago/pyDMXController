@@ -1,7 +1,7 @@
 import serial
 import time
 
-__version__ = '0.2'
+__version__ = '0.3'
 
 class pyDMXController:
     def __init__(self, port, device_type='ftdi'):
@@ -15,8 +15,8 @@ class pyDMXController:
         self.channels = [0] * 512
 
     def update_channel(self, channel, value):
-        if 0 <= channel < 512:
-            self.channels[channel] = value
+        if 1 <= channel <= 512:
+            self.channels[channel - 1] = value  # Subtract 1 to align with Python's 0-indexing
 
     def send_dmx(self):
         if self.device_type == 'enttec':
@@ -28,7 +28,7 @@ class pyDMXController:
         # FTDI specific DMX protocol
         # Set Break Condition (88 microseconds or more)
         self.serial.break_condition = True
-        time.sleep(0.000088)  # Break time
+        time.sleep(0.000008)  # Break time
         self.serial.break_condition = False
         # MAB duration (8 microseconds or more)
         time.sleep(0.000008)
@@ -51,7 +51,8 @@ class pyDMXController:
         while time.time() - start_time < duration:
             self.send_dmx()
             # Adjust this delay as needed for smoother transitions
-            time.sleep(0.02)  # Example: 20 milliseconds for smoother transitions
+            time.sleep(0.0002)  # Example: 20 milliseconds for smoother transitions
 
     def close(self):
         self.serial.close()
+    
