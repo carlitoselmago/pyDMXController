@@ -13,6 +13,6 @@ dmx = pyDMXController(port='/dev/ttyUSB0', device_type='enttec')
 dmx = pyDMXController(port='/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50285BI-if00-port0', device_type='ftdi')
 ```
 
-Tested only on FT232 on Ubuntu, should work on SBCs such as Raspberry pi
+Works on Raspberry pi
 
 Check the example.py for more info on how to use it
